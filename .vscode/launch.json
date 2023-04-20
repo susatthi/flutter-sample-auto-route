@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "mobile",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "debug",
+      "program": "lib/main.dart",
+      "args": []
+    },
+    {
+      "name": "web",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "debug",
+      "program": "lib/main.dart",
+      "args": [
+        "--web-hostname",
+        "localhost",
+        "--web-port",
+        "5000",
+      ]
+    }
+  ]
+}

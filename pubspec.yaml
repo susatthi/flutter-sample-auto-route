@@ -6,14 +6,15 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
+  collection: ^1.17.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.3.5
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
-  flutter_test:
-    sdk: flutter
+  build_runner: ^2.3.3
+  pedantic_mono: ^1.21.1
 
 flutter:
   uses-material-design: true
