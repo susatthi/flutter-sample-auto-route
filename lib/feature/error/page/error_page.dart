@@ -3,19 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage()
-class CartPage extends ConsumerWidget {
-  const CartPage({super.key});
+class ErrorPage extends ConsumerWidget {
+  const ErrorPage({
+    super.key,
+    this.error = '不明なエラーです。',
+  });
+
+  final Object error;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('カート'),
+        title: const Text('エラー'),
       ),
-      body: const ColoredBox(
+      body: ColoredBox(
         color: Colors.red,
         child: Center(
-          child: Text('カート'),
+          child: Text(error.toString()),
         ),
       ),
     );

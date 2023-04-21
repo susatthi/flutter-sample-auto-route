@@ -45,6 +45,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SettingsPage(),
       );
     },
+    SignInRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SignInPage(),
+      );
+    },
     DashboardNavigationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -57,10 +63,15 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const DashboardPage(),
       );
     },
-    CartRoute.name: (routeData) {
+    ErrorRoute.name: (routeData) {
+      final args = routeData.argsAs<ErrorRouteArgs>(
+          orElse: () => const ErrorRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CartPage(),
+        child: ErrorPage(
+          key: args.key,
+          error: args.error,
+        ),
       );
     },
     NotFoundRoute.name: (routeData) {
@@ -69,10 +80,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const NotFoundPage(),
       );
     },
-    SignInRoute.name: (routeData) {
+    MypageNavigationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SignInPage(),
+        child: const MypageNavigationPage(),
+      );
+    },
+    MypageRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MypagePage(),
       );
     },
   };
@@ -160,6 +177,20 @@ class SettingsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [SignInPage]
+class SignInRoute extends PageRouteInfo<void> {
+  const SignInRoute({List<PageRouteInfo>? children})
+      : super(
+          SignInRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SignInRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [DashboardNavigationPage]
 class DashboardNavigationRoute extends PageRouteInfo<void> {
   const DashboardNavigationRoute({List<PageRouteInfo>? children})
@@ -188,17 +219,40 @@ class DashboardRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [CartPage]
-class CartRoute extends PageRouteInfo<void> {
-  const CartRoute({List<PageRouteInfo>? children})
-      : super(
-          CartRoute.name,
+/// [ErrorPage]
+class ErrorRoute extends PageRouteInfo<ErrorRouteArgs> {
+  ErrorRoute({
+    Key? key,
+    Object error = '不明なエラーです。',
+    List<PageRouteInfo>? children,
+  }) : super(
+          ErrorRoute.name,
+          args: ErrorRouteArgs(
+            key: key,
+            error: error,
+          ),
           initialChildren: children,
         );
 
-  static const String name = 'CartRoute';
+  static const String name = 'ErrorRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ErrorRouteArgs> page = PageInfo<ErrorRouteArgs>(name);
+}
+
+class ErrorRouteArgs {
+  const ErrorRouteArgs({
+    this.key,
+    this.error = '不明なエラーです。',
+  });
+
+  final Key? key;
+
+  final Object error;
+
+  @override
+  String toString() {
+    return 'ErrorRouteArgs{key: $key, error: $error}';
+  }
 }
 
 /// generated route for
@@ -216,15 +270,29 @@ class NotFoundRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SignInPage]
-class SignInRoute extends PageRouteInfo<void> {
-  const SignInRoute({List<PageRouteInfo>? children})
+/// [MypageNavigationPage]
+class MypageNavigationRoute extends PageRouteInfo<void> {
+  const MypageNavigationRoute({List<PageRouteInfo>? children})
       : super(
-          SignInRoute.name,
+          MypageNavigationRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SignInRoute';
+  static const String name = 'MypageNavigationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MypagePage]
+class MypageRoute extends PageRouteInfo<void> {
+  const MypageRoute({List<PageRouteInfo>? children})
+      : super(
+          MypageRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MypageRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

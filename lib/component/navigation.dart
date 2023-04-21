@@ -9,10 +9,10 @@ enum NavigationItem {
     icon: Icons.dashboard_outlined,
     selectedIcon: Icons.dashboard,
   ),
-  settings(
-    label: '設定',
-    icon: Icons.settings_outlined,
-    selectedIcon: Icons.settings,
+  mypage(
+    label: 'マイページ',
+    icon: Icons.account_circle_outlined,
+    selectedIcon: Icons.account_circle,
   ),
   ;
 
@@ -38,7 +38,7 @@ class NavigationPage extends StatelessWidget {
     return AutoTabsRouter(
       routes: const [
         DashboardNavigationRoute(),
-        SettingsNavigationRoute(),
+        MypageNavigationRoute(),
       ],
       transitionBuilder: (context, child, animation) {
         return AnimatedBuilder(

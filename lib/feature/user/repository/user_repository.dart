@@ -17,16 +17,23 @@ class UserRepository {
   final Box<User> box;
 
   static const keyName = 'user';
+  static const delaySeconds = 4;
 
   Future<void> put(User user) async {
+    // 擬似的に遅延させる
+    await Future<void>.delayed(const Duration(seconds: delaySeconds));
     await box.put(keyName, user);
   }
 
   Future<void> delete() async {
+    // 擬似的に遅延させる
+    await Future<void>.delayed(const Duration(seconds: delaySeconds));
     await box.delete(keyName);
   }
 
-  User? get() {
+  Future<User?> get() async {
+    // 擬似的に遅延させる
+    // await Future<void>.delayed(const Duration(seconds: delaySeconds));
     return box.get(keyName, defaultValue: null);
   }
 

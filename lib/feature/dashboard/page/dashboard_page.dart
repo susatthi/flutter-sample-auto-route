@@ -21,10 +21,10 @@ class DashboardPage extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () async {
-              await context.router.navigate(const CartRoute());
+              await context.router.push(const SettingsNavigationRoute());
             },
-            icon: const Icon(Icons.shopping_cart),
-          )
+            icon: const Icon(Icons.settings),
+          ),
         ],
       ),
       body: const ColoredBox(

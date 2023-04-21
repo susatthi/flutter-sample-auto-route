@@ -13,6 +13,13 @@ class User with _$User {
   }) = _User;
 }
 
-final userProvider = StreamProvider((ref) {
+final userStreamProvider = StreamProvider((ref) {
   return ref.watch(userRepositoryProvider).changes();
+});
+
+final userProvider = FutureProvider((ref) async {
+  ref.listen(userStreamProvider, (previous, next) {
+    ref.state = next;
+  });
+  return ref.watch(userRepositoryProvider).get();
 });

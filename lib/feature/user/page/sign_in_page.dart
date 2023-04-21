@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../service/user_service.dart';
+import 'component/sign_in.dart';
 import 'component/uid_text_field.dart';
 
 @RoutePage()
@@ -47,32 +48,9 @@ class _BodyState extends ConsumerState<_Body> {
         children: [
           const UidTextField(),
           const SizedBox(height: 40),
-          _SignInButton(formKey: _formKey),
+          SignInButton(formKey: _formKey),
         ],
       ),
-    );
-  }
-}
-
-class _SignInButton extends ConsumerWidget {
-  const _SignInButton({
-    required this.formKey,
-  });
-
-  final GlobalKey<FormState> formKey;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return FilledButton(
-      onPressed: () async {
-        if (!formKey.currentState!.validate()) {
-          return;
-        }
-
-        final uid = ref.read(uidTextEditingControllerProvider).text;
-        await ref.read(userServiceProvider).signIn(uid: uid);
-      },
-      child: const Text('サインイン'),
     );
   }
 }

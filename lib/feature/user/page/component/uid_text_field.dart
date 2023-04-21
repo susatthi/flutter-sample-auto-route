@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../state/user.dart';
+
 final uidTextEditingControllerProvider = Provider.autoDispose(
   (ref) {
-    final controller = TextEditingController();
+    final uid = ref.watch(userProvider).value?.uid;
+    final controller = TextEditingController(text: uid);
     ref.onDispose(controller.dispose);
     return controller;
   },
 );
 
-class UidTextField extends ConsumerStatefulWidget {
+class UidTextField extends ConsumerWidget {
   const UidTextField({super.key});
 
   @override
-  ConsumerState<UidTextField> createState() => _UidTextFieldState();
-}
-
-class _UidTextFieldState extends ConsumerState<UidTextField> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final controller = ref.watch(uidTextEditingControllerProvider);
     return TextFormField(
       controller: controller,
@@ -26,9 +24,6 @@ class _UidTextFieldState extends ConsumerState<UidTextField> {
         label: Text('ユーザーID'),
         border: OutlineInputBorder(),
       ),
-      onChanged: (text) {
-        setState(() {});
-      },
       validator: (text) {
         if (text == null || text.isEmpty) {
           return '入力してください。';

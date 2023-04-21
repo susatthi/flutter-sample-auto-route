@@ -11,6 +11,10 @@ final signOutStateProvider = StateProvider<AsyncValue<void>>(
   (_) => const AsyncValue.data(null),
 );
 
+final updateUidStateProvider = StateProvider<AsyncValue<void>>(
+  (_) => const AsyncValue.data(null),
+);
+
 final userServiceProvider = Provider(
   UserService.new,
 );
@@ -37,6 +41,16 @@ class UserService {
     notifier.state = const AsyncValue.loading();
     notifier.state = await AsyncValue.guard(() async {
       await userRepository.delete();
+    });
+  }
+
+  Future<void> updateUid({
+    required String newUid,
+  }) async {
+    final notifier = ref.read(updateUidStateProvider.notifier);
+    notifier.state = const AsyncValue.loading();
+    notifier.state = await AsyncValue.guard(() async {
+      await userRepository.put(User(uid: newUid));
     });
   }
 }
