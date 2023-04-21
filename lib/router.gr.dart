@@ -33,12 +33,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    SettingsNavigationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const SettingsNavigationPage(),
-      );
-    },
     SettingsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -152,20 +146,6 @@ class SettingsDetailsRouteArgs {
   String toString() {
     return 'SettingsDetailsRouteArgs{key: $key, id: $id}';
   }
-}
-
-/// generated route for
-/// [SettingsNavigationPage]
-class SettingsNavigationRoute extends PageRouteInfo<void> {
-  const SettingsNavigationRoute({List<PageRouteInfo>? children})
-      : super(
-          SettingsNavigationRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SettingsNavigationRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

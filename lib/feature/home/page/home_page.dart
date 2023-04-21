@@ -21,7 +21,7 @@ class HomePage extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () async {
-              await context.router.push(const SettingsNavigationRoute());
+              await context.router.navigate(const SettingsRoute());
             },
             icon: const Icon(Icons.settings),
           ),

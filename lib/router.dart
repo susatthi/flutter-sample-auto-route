@@ -46,6 +46,14 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
                   initial: true,
                   page: HomeRoute.page,
                 ),
+                AutoRoute(
+                  page: SettingsRoute.page,
+                  path: 'settings',
+                ),
+                AutoRoute(
+                  page: SettingsDetailsRoute.page,
+                  path: 'settings/:id',
+                ),
               ],
             ),
             AutoRoute(
@@ -59,21 +67,6 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
                 AutoRoute(
                   page: TermOfServiceRoute.page,
                   path: 'term-of-service',
-                ),
-              ],
-            ),
-            AutoRoute(
-              page: SettingsNavigationRoute.page,
-              path: 'settings',
-              // fullscreenDialog: true,
-              children: [
-                AutoRoute(
-                  initial: true,
-                  page: SettingsRoute.page,
-                ),
-                AutoRoute(
-                  page: SettingsDetailsRoute.page,
-                  path: ':id',
                 ),
               ],
             ),
