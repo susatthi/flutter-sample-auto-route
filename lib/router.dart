@@ -8,6 +8,7 @@ import 'feature/dashboard/page/dashboard_page.dart';
 import 'feature/error/page/not_found_page.dart';
 import 'feature/settings/page/settings_details_page.dart';
 import 'feature/settings/page/settings_page.dart';
+import 'feature/user/page/sign_in_page.dart';
 
 part 'router.gr.dart';
 
@@ -19,6 +20,10 @@ final routerProvider = Provider((ref) {
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
+        AutoRoute(
+          page: SignInRoute.page,
+          path: '/sign-in',
+        ),
         AutoRoute(
           page: NavigationRoute.page,
           path: '/',
