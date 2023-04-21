@@ -93,44 +93,35 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
     logger.i('CALLED onNavigation(): $routeName');
 
     // ユーザーの状態に応じて処理をわける
-    final signedInAsyncValue = ref.watch(signedInProvider);
-    signedInAsyncValue.when<void>(
-      data: (signedIn) {
-        // 無条件で表示する画面
-        if ([
-          SignInRoute.name,
-          LoadingRoute.name,
-          ErrorRoute.name,
-        ].contains(routeName)) {
-          logger.i('$routeName は無条件で表示する');
-          return resolver.next();
-        }
+    // App()でユーザー状態が確定するまで待っているので、このタイミングでは確定している
+    final signedIn = ref.read(signedInProvider).requireValue;
+    if (!signedIn) {
+      // サインイン済み
 
-        if (!signedIn) {
-          logger.i('未サインインなのでサインイン画面にリダイレクト');
-          router.replaceAll([const SignInRoute()]);
-        } else if (routeName == SignInRoute.name) {
-          logger.i('サインイン済みなのにサインイン画面を開こうとした場合トップ画面にリダイレクト');
-          router.pushAll([const NavigationRoute()]);
-          return;
-        } else {
-          logger.i('サインイン済みなので $routeName を表示する');
-          resolver.next();
-        }
-      },
-      error: (e, s) {
-        logger.i('エラーが発生したのでエラー画面にリダイレクト');
-        router.replaceAll([ErrorRoute(error: e)]);
-      },
-      loading: () {
-        if (LoadingRoute.name == routeName) {
-          logger.i('$routeName は無条件で表示する');
-          return resolver.next();
-        }
+      if ([
+        SignInRoute.name,
+        LoadingRoute.name,
+        ErrorRoute.name,
+      ].contains(routeName)) {
+        logger.i('$routeName は未サインインでも表示する');
+        return resolver.next();
+      }
 
-        logger.i('ユーザーの状態が未確定なので確定するまで待つ');
-        router.replaceAll([const LoadingRoute()]);
-      },
-    );
+      logger.i('未サインインなのでサインイン画面にリダイレクト');
+      router.replace(const SignInRoute());
+    } else {
+      // 未サインイン
+
+      if ([
+        SignInRoute.name,
+      ].contains(routeName)) {
+        logger.i('サインイン済みなのに $routeName を開こうとした場合トップ画面にリダイレクト');
+        router.push(const NavigationRoute());
+        return;
+      }
+
+      logger.i('サインイン済みなので $routeName を表示する');
+      resolver.next();
+    }
   }
 }
