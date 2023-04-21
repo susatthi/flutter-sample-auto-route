@@ -6,13 +6,16 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
+  auto_route: ^6.3.0
   collection: ^1.17.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.3.5
+  url_strategy: 0.2.0
 
 dev_dependencies:
+  auto_route_generator: ^6.2.0
   build_runner: ^2.3.3
   pedantic_mono: ^1.21.1
 
