@@ -33,10 +33,10 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    SettingsRouterRoute.name: (routeData) {
+    SettingsNavigationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SettingsRouterPage(),
+        child: const SettingsNavigationPage(),
       );
     },
     SettingsRoute.name: (routeData) {
@@ -45,10 +45,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SettingsPage(),
       );
     },
-    DashboardRouterRoute.name: (routeData) {
+    DashboardNavigationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const DashboardRouterPage(),
+        child: const DashboardNavigationPage(),
       );
     },
     DashboardRoute.name: (routeData) {
@@ -126,15 +126,15 @@ class SettingsDetailsRouteArgs {
 }
 
 /// generated route for
-/// [SettingsRouterPage]
-class SettingsRouterRoute extends PageRouteInfo<void> {
-  const SettingsRouterRoute({List<PageRouteInfo>? children})
+/// [SettingsNavigationPage]
+class SettingsNavigationRoute extends PageRouteInfo<void> {
+  const SettingsNavigationRoute({List<PageRouteInfo>? children})
       : super(
-          SettingsRouterRoute.name,
+          SettingsNavigationRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SettingsRouterRoute';
+  static const String name = 'SettingsNavigationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -154,15 +154,15 @@ class SettingsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [DashboardRouterPage]
-class DashboardRouterRoute extends PageRouteInfo<void> {
-  const DashboardRouterRoute({List<PageRouteInfo>? children})
+/// [DashboardNavigationPage]
+class DashboardNavigationRoute extends PageRouteInfo<void> {
+  const DashboardNavigationRoute({List<PageRouteInfo>? children})
       : super(
-          DashboardRouterRoute.name,
+          DashboardNavigationRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'DashboardRouterRoute';
+  static const String name = 'DashboardNavigationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

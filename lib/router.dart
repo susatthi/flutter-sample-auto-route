@@ -25,22 +25,22 @@ class AppRouter extends _$AppRouter {
           children: [
             AutoRoute(
               initial: true,
-              page: DashboardRouterRoute.page,
+              page: DashboardNavigationRoute.page,
               path: 'dashboard',
               children: [
                 AutoRoute(
+                  initial: true,
                   page: DashboardRoute.page,
-                  path: '',
                 ),
               ],
             ),
             AutoRoute(
-              page: SettingsRouterRoute.page,
+              page: SettingsNavigationRoute.page,
               path: 'settings',
               children: [
                 AutoRoute(
+                  initial: true,
                   page: SettingsRoute.page,
-                  path: '',
                 ),
                 AutoRoute(
                   page: SettingsDetailsRoute.page,

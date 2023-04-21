@@ -37,8 +37,8 @@ class NavigationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsRouter(
       routes: const [
-        DashboardRoute(),
-        SettingsRouterRoute(),
+        DashboardNavigationRoute(),
+        SettingsNavigationRoute(),
       ],
       transitionBuilder: (context, child, animation) {
         return AnimatedBuilder(
