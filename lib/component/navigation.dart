@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import '../router.dart';
 
 enum NavigationItem {
-  dashboard(
-    label: 'ダッシュボード',
-    icon: Icons.dashboard_outlined,
-    selectedIcon: Icons.dashboard,
+  home(
+    label: 'ホーム',
+    icon: Icons.home_outlined,
+    selectedIcon: Icons.home,
   ),
   mypage(
     label: 'マイページ',
@@ -37,7 +37,7 @@ class NavigationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsRouter(
       routes: const [
-        DashboardNavigationRoute(),
+        HomeNavigationRoute(),
         MypageNavigationRoute(),
       ],
       transitionBuilder: (context, child, animation) {

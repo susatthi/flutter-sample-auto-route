@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../router.dart';
 import '../state/user.dart';
 import 'component/sign_out.dart';
 import 'component/uid_text_field.dart';
@@ -28,10 +29,13 @@ class MypagePage extends ConsumerWidget {
             ListTile(
               title: const Text('ユーザーID'),
               subtitle: Text(ref.watch(userProvider).value?.uid ?? ''),
-              onTap: () => showModalBottomSheet<void>(
-                context: context,
-                builder: (context) => const _EditUidBottomSheet(),
-              ),
+              trailing: const _EditUidButton(),
+            ),
+            ListTile(
+              title: const Text('利用規約'),
+              onTap: () async {
+                await context.router.navigate(const TermOfServiceRoute());
+              },
             ),
             ListTile(
               title: const Text('サインアウト'),
@@ -43,6 +47,21 @@ class MypagePage extends ConsumerWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _EditUidButton extends StatelessWidget {
+  const _EditUidButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () => showModalBottomSheet<void>(
+        context: context,
+        builder: (context) => const _EditUidBottomSheet(),
+      ),
+      child: const Text('変更'),
     );
   }
 }

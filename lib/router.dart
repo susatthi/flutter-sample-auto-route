@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'component/navigation.dart';
-import 'feature/dashboard/page/dashboard_page.dart';
 import 'feature/error/page/error_page.dart';
 import 'feature/error/page/not_found_page.dart';
+import 'feature/home/page/home_page.dart';
 import 'feature/settings/page/settings_details_page.dart';
 import 'feature/settings/page/settings_page.dart';
 import 'feature/user/page/mypage_page.dart';
 import 'feature/user/page/sign_in_page.dart';
+import 'feature/user/page/term_of_service_page.dart';
 import 'feature/user/state/user.dart';
 import 'util/logger.dart';
 
@@ -38,12 +39,12 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
             // ネストルーティングするためにAppRouterを挟む
             AutoRoute(
               initial: true,
-              page: DashboardNavigationRoute.page,
-              path: 'dashboard',
+              page: HomeNavigationRoute.page,
+              path: 'home',
               children: [
                 AutoRoute(
                   initial: true,
-                  page: DashboardRoute.page,
+                  page: HomeRoute.page,
                 ),
               ],
             ),
@@ -54,6 +55,10 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
                 AutoRoute(
                   initial: true,
                   page: MypageRoute.page,
+                ),
+                AutoRoute(
+                  page: TermOfServiceRoute.page,
+                  path: 'term-of-service',
                 ),
               ],
             ),

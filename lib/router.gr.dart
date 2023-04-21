@@ -51,18 +51,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SignInPage(),
       );
     },
-    DashboardNavigationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const DashboardNavigationPage(),
-      );
-    },
-    DashboardRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const DashboardPage(),
-      );
-    },
     ErrorRoute.name: (routeData) {
       final args = routeData.argsAs<ErrorRouteArgs>(
           orElse: () => const ErrorRouteArgs());
@@ -90,6 +78,24 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const MypagePage(),
+      );
+    },
+    HomeNavigationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeNavigationPage(),
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomePage(),
+      );
+    },
+    TermOfServiceRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TermOfServicePage(),
       );
     },
   };
@@ -191,34 +197,6 @@ class SignInRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [DashboardNavigationPage]
-class DashboardNavigationRoute extends PageRouteInfo<void> {
-  const DashboardNavigationRoute({List<PageRouteInfo>? children})
-      : super(
-          DashboardNavigationRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'DashboardNavigationRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [DashboardPage]
-class DashboardRoute extends PageRouteInfo<void> {
-  const DashboardRoute({List<PageRouteInfo>? children})
-      : super(
-          DashboardRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'DashboardRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [ErrorPage]
 class ErrorRoute extends PageRouteInfo<ErrorRouteArgs> {
   ErrorRoute({
@@ -293,6 +271,48 @@ class MypageRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MypageRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomeNavigationPage]
+class HomeNavigationRoute extends PageRouteInfo<void> {
+  const HomeNavigationRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeNavigationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeNavigationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TermOfServicePage]
+class TermOfServiceRoute extends PageRouteInfo<void> {
+  const TermOfServiceRoute({List<PageRouteInfo>? children})
+      : super(
+          TermOfServiceRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TermOfServiceRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

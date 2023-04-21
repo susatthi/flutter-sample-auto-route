@@ -5,19 +5,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../router.dart';
 
 @RoutePage()
-class DashboardNavigationPage extends AutoRouter {
-  const DashboardNavigationPage({super.key});
+class HomeNavigationPage extends AutoRouter {
+  const HomeNavigationPage({super.key});
 }
 
 @RoutePage()
-class DashboardPage extends ConsumerWidget {
-  const DashboardPage({super.key});
+class HomePage extends ConsumerWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ダッシュボード'),
+        title: const Text('ホーム'),
         actions: [
           IconButton(
             onPressed: () async {
@@ -30,7 +30,7 @@ class DashboardPage extends ConsumerWidget {
       body: const ColoredBox(
         color: Colors.amber,
         child: Center(
-          child: Text('ダッシュボード'),
+          child: Text('ホーム'),
         ),
       ),
     );
