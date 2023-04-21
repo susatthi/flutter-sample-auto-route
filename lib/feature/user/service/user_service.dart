@@ -5,14 +5,17 @@ import '../state/user.dart';
 
 final signInStateProvider = StateProvider<AsyncValue<void>>(
   (_) => const AsyncValue.data(null),
+  name: 'signInStateProvider',
 );
 
 final signOutStateProvider = StateProvider<AsyncValue<void>>(
   (_) => const AsyncValue.data(null),
+  name: 'signOutStateProvider',
 );
 
 final updateUidStateProvider = StateProvider<AsyncValue<void>>(
   (_) => const AsyncValue.data(null),
+  name: 'updateUidStateProvider',
 );
 
 final userServiceProvider = Provider(

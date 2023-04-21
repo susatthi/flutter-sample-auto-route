@@ -7,6 +7,7 @@ import 'app.dart';
 import 'feature/user/repository/user_adapter.dart';
 import 'feature/user/repository/user_repository.dart';
 import 'feature/user/state/user.dart';
+import 'util/provider_logger.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,9 @@ Future<void> main() async {
 
   runApp(
     ProviderScope(
+      observers: [
+        ProviderLogger(),
+      ],
       overrides: [
         userRepositoryProvider.overrideWith((ref) {
           return UserRepository(box: userBox);
