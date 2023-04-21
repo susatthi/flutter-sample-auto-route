@@ -6,6 +6,7 @@ import 'component/navigation.dart';
 import 'feature/error/page/error_page.dart';
 import 'feature/error/page/not_found_page.dart';
 import 'feature/home/page/home_page.dart';
+import 'feature/loading/page/loading_page.dart';
 import 'feature/settings/page/settings_details_page.dart';
 import 'feature/settings/page/settings_page.dart';
 import 'feature/user/page/mypage_page.dart';
@@ -73,6 +74,10 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
           ],
         ),
         AutoRoute(
+          page: LoadingRoute.page,
+          path: '/loading',
+        ),
+        AutoRoute(
           page: ErrorRoute.page,
           path: '/error',
         ),
@@ -96,6 +101,7 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
         // 無条件で表示する画面
         if ([
           SignInRoute.name,
+          LoadingRoute.name,
           ErrorRoute.name,
         ].contains(routeName)) {
           logger.i('$routeName は無条件で表示する');
@@ -119,7 +125,13 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
         router.replaceAll([ErrorRoute(error: e)]);
       },
       loading: () {
+        if (LoadingRoute.name == routeName) {
+          logger.i('$routeName は無条件で表示する');
+          return resolver.next();
+        }
+
         logger.i('ユーザーの状態が未確定なので確定するまで待つ');
+        router.replaceAll([const LoadingRoute()]);
       },
     );
   }

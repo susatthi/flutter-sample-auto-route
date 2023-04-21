@@ -33,7 +33,7 @@ class UserRepository {
 
   Future<User?> get() async {
     // 擬似的に遅延させる
-    // await Future<void>.delayed(const Duration(seconds: delaySeconds));
+    await Future<void>.delayed(const Duration(seconds: delaySeconds));
     return box.get(keyName, defaultValue: null);
   }
 
