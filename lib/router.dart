@@ -23,6 +23,7 @@ class AppRouter extends _$AppRouter {
           page: NavigationRoute.page,
           path: '/',
           children: [
+            // ネストルーティングするためにAppRouterを挟む
             AutoRoute(
               initial: true,
               page: DashboardNavigationRoute.page,
