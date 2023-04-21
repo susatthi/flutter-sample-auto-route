@@ -11,7 +11,10 @@ class App extends ConsumerWidget {
     final router = ref.watch(routerProvider);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      routerConfig: router.config(),
+      routerConfig: router.config(
+        // 画面リロードしたときにページスタックを積むようにする
+        includePrefixMatches: true,
+      ),
     );
   }
 }

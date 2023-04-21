@@ -5,6 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../router.dart';
 
 @RoutePage()
+class DashboardRouterPage extends AutoRouter {
+  const DashboardRouterPage({super.key});
+}
+
+@RoutePage()
 class DashboardPage extends ConsumerWidget {
   const DashboardPage({super.key});
 
