@@ -21,7 +21,7 @@ class DashboardPage extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () async {
-              await context.router.push(const CartRoute());
+              await context.router.navigate(const CartRoute());
             },
             icon: const Icon(Icons.shopping_cart),
           )

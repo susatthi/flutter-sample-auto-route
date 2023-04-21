@@ -20,8 +20,8 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          path: '/',
           page: NavigationRoute.page,
+          path: '/',
           children: [
             AutoRoute(
               initial: true,
