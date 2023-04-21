@@ -93,9 +93,7 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
     logger.i('CALLED onNavigation(): $routeName');
 
     // ユーザーの状態に応じて処理をわける
-    final signedInAsyncValue =
-        ref.watch(userProvider).whenData((user) => user != null);
-
+    final signedInAsyncValue = ref.watch(signedInProvider);
     signedInAsyncValue.when<void>(
       data: (signedIn) {
         // 無条件で表示する画面

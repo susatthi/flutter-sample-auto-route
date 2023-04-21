@@ -23,3 +23,19 @@ final userProvider = FutureProvider((ref) async {
   });
   return ref.watch(userRepositoryProvider).get();
 });
+
+final signedInProvider = StateProvider<AsyncValue<bool>>(
+  (ref) {
+    // uidが変更された場合は通知しないように、user != null
+    // の状態に変化があったときだけ状態を変更する
+    ref.listen(userProvider, (previous, next) {
+      final prevSignedIn = previous?.value != null;
+      final nextSignedIn = next.value != null;
+      if (prevSignedIn != nextSignedIn) {
+        ref.controller.state = AsyncValue.data(next.value != null);
+      }
+    });
+    return const AsyncValue.loading();
+  },
+  name: 'signedInProvider',
+);

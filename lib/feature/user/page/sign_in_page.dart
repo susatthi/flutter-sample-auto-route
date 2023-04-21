@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../service/user_service.dart';
 import 'component/sign_in.dart';
 import 'component/uid_text_field.dart';
 
@@ -12,10 +11,6 @@ class SignInPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(signInStateProvider, (_, next) {
-      print(next);
-    });
-
     return Scaffold(
       body: Center(
         child: ConstrainedBox(

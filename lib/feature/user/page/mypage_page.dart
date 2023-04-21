@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../component/widget_ref.dart';
 import '../../../router.dart';
+import '../service/user_service.dart';
 import '../state/user.dart';
 import 'component/sign_out.dart';
 import 'component/uid_text_field.dart';
@@ -79,6 +81,14 @@ class _EditUidBottomSheetState extends ConsumerState<_EditUidBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    ref.handleAsyncValue(
+      updateUidStateProvider,
+      completeMessage: 'ユーザーIDを更新しました。',
+      onComplete: (_) {
+        Navigator.of(context).pop();
+      },
+    );
+
     return Form(
       key: _formKey,
       child: Row(
