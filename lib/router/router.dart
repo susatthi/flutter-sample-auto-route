@@ -2,18 +2,18 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'component/navigation.dart';
-import 'feature/error/page/error_page.dart';
-import 'feature/error/page/not_found_page.dart';
-import 'feature/home/page/home_page.dart';
-import 'feature/loading/page/loading_page.dart';
-import 'feature/settings/page/settings_details_page.dart';
-import 'feature/settings/page/settings_page.dart';
-import 'feature/user/page/mypage_page.dart';
-import 'feature/user/page/sign_in_page.dart';
-import 'feature/user/page/term_of_service_page.dart';
-import 'feature/user/state/user.dart';
-import 'util/logger.dart';
+import '../component/navigation.dart';
+import '../feature/error/page/error_page.dart';
+import '../feature/error/page/not_found_page.dart';
+import '../feature/home/page/home_page.dart';
+import '../feature/loading/page/loading_page.dart';
+import '../feature/settings/page/settings_details_page.dart';
+import '../feature/settings/page/settings_page.dart';
+import '../feature/user/page/mypage_page.dart';
+import '../feature/user/page/sign_in_page.dart';
+import '../feature/user/page/term_of_service_page.dart';
+import '../feature/user/state/user.dart';
+import '../util/logger.dart';
 
 part 'router.gr.dart';
 

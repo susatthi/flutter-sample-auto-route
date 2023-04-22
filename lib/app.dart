@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'analytics_router_observer.dart';
 import 'component/dialogs.dart';
 import 'component/loading.dart';
 import 'component/scaffold_messenger.dart';
@@ -10,8 +9,9 @@ import 'feature/error/page/error_page.dart';
 import 'feature/loading/page/loading_page.dart';
 import 'feature/user/service/user_service.dart';
 import 'feature/user/state/user.dart';
-import 'logger_router_observer.dart';
-import 'router.dart';
+import 'router/analytics_router_observer.dart';
+import 'router/logger_router_observer.dart';
+import 'router/router.dart';
 import 'util/logger.dart';
 
 class App extends ConsumerWidget {
