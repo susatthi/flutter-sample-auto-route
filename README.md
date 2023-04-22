@@ -1,3 +1,3 @@
 # flutter_sample_auto_route
 
-https://user-images.githubusercontent.com/13707135/233518294-3ef6d1bf-6b28-4374-9395-3521fc0cb694.mp4
+https://user-images.githubusercontent.com/13707135/233752639-d767908f-4174-4069-ba2d-3227de27b535.mp4
