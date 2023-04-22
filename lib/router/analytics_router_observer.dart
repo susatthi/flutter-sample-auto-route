@@ -41,32 +41,6 @@ class AnalyticsRouterObserver extends AutoRouterObserver {
     }
   }
 
-  Route<dynamic> _convertRouteNameToRoute(String navigationName) {
-    switch (navigationName) {
-      case HomeNavigationRoute.name:
-        return _generateMaterialPageRoute(name: HomeRoute.name);
-      case MypageNavigationRoute.name:
-        return _generateMaterialPageRoute(name: MypageRoute.name);
-    }
-    throw AssertionError();
-  }
-
-  MaterialPageRoute<dynamic> _generateMaterialPageRoute({
-    required String name,
-  }) =>
-      MaterialPageRoute(
-        settings: RouteSettings(name: name),
-        builder: (context) => const SizedBox(),
-      );
-
-  @override
-  void didChangeTabRoute(TabPageRoute route, TabPageRoute previousRoute) {
-    super.didChangeTabRoute(route, previousRoute);
-
-    // タブの切替でもアナリティクスに送信する
-    _sendScreenView(_convertRouteNameToRoute(route.name));
-  }
-
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
