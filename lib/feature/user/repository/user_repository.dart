@@ -17,7 +17,7 @@ class UserRepository {
   final Box<User> box;
 
   static const keyName = 'user';
-  static const delaySeconds = 4;
+  static const delaySeconds = 2;
 
   Future<void> put(User user) async {
     // 擬似的に遅延させる
