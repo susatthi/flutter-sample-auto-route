@@ -14,6 +14,7 @@ import '../feature/user/page/sign_in_page.dart';
 import '../feature/user/page/term_of_service_page.dart';
 import '../feature/user/state/user.dart';
 import '../util/logger.dart';
+import 'route_type.dart';
 
 part 'router.gr.dart';
 
@@ -32,10 +33,12 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
         AutoRoute(
           page: SignInRoute.page,
           path: '/sign-in',
+          type: const NoAnimationRouteType(),
         ),
         AutoRoute(
           page: NavigationRoute.page,
           path: '/',
+          type: const NoAnimationRouteType(),
           children: [
             // ネストルーティングするためにAppRouterを挟む
             AutoRoute(
@@ -74,16 +77,9 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
           ],
         ),
         AutoRoute(
-          page: LoadingRoute.page,
-          path: '/loading',
-        ),
-        AutoRoute(
-          page: ErrorRoute.page,
-          path: '/error',
-        ),
-        AutoRoute(
           page: NotFoundRoute.page,
           path: '*',
+          type: const NoAnimationRouteType(),
         ),
       ];
 
