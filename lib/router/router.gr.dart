@@ -15,12 +15,6 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    NavigationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const NavigationPage(),
-      );
-    },
     SettingsDetailsRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<SettingsDetailsRouteArgs>(
@@ -98,21 +92,13 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const LoadingPage(),
       );
     },
+    NavigationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NavigationPage(),
+      );
+    },
   };
-}
-
-/// generated route for
-/// [NavigationPage]
-class NavigationRoute extends PageRouteInfo<void> {
-  const NavigationRoute({List<PageRouteInfo>? children})
-      : super(
-          NavigationRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'NavigationRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -313,6 +299,20 @@ class LoadingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LoadingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [NavigationPage]
+class NavigationRoute extends PageRouteInfo<void> {
+  const NavigationRoute({List<PageRouteInfo>? children})
+      : super(
+          NavigationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NavigationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

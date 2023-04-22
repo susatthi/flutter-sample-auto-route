@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'dialogs.dart';
+import 'dialog.dart';
 import 'loading.dart';
 import 'scaffold_messenger.dart';
 

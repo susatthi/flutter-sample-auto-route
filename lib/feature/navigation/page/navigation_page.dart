@@ -1,33 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../router/router.dart';
-
-enum NavigationItem {
-  home(
-    label: 'ホーム',
-    icon: Icons.home_outlined,
-    selectedIcon: Icons.home,
-  ),
-  mypage(
-    label: 'マイページ',
-    icon: Icons.account_circle_outlined,
-    selectedIcon: Icons.account_circle,
-  ),
-  ;
-
-  const NavigationItem({
-    required this.label,
-    required this.icon,
-    required this.selectedIcon,
-  });
-
-  final String label;
-  final IconData icon;
-  final IconData selectedIcon;
-
-  static NavigationItem indexOf(int index) => NavigationItem.values[index];
-}
+import '../../../router/router.dart';
+import '../state/navigation_item.dart';
 
 @RoutePage()
 class NavigationPage extends StatelessWidget {
