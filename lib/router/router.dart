@@ -29,6 +29,9 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
   final Ref ref;
 
   @override
+  RouteType get defaultRouteType => const RouteType.cupertino();
+
+  @override
   List<AutoRoute> get routes => [
         AutoRoute(
           page: SignInRoute.page,
