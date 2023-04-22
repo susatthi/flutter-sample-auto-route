@@ -33,10 +33,52 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SettingsPage(),
       );
     },
+    HomeNavigationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeNavigationPage(),
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomePage(),
+      );
+    },
+    LoadingRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoadingPage(),
+      );
+    },
+    NavigationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NavigationPage(),
+      );
+    },
     SignInRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SignInPage(),
+      );
+    },
+    MypageNavigationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MypageNavigationPage(),
+      );
+    },
+    MypageRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MypagePage(),
+      );
+    },
+    TermOfServiceRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TermOfServicePage(),
       );
     },
     ErrorRoute.name: (routeData) {
@@ -54,48 +96,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const NotFoundPage(),
-      );
-    },
-    MypageNavigationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const MypageNavigationPage(),
-      );
-    },
-    MypageRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const MypagePage(),
-      );
-    },
-    HomeNavigationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HomeNavigationPage(),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HomePage(),
-      );
-    },
-    TermOfServiceRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const TermOfServicePage(),
-      );
-    },
-    LoadingRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const LoadingPage(),
-      );
-    },
-    NavigationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const NavigationPage(),
       );
     },
   };
@@ -155,6 +155,62 @@ class SettingsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [HomeNavigationPage]
+class HomeNavigationRoute extends PageRouteInfo<void> {
+  const HomeNavigationRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeNavigationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeNavigationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LoadingPage]
+class LoadingRoute extends PageRouteInfo<void> {
+  const LoadingRoute({List<PageRouteInfo>? children})
+      : super(
+          LoadingRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LoadingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [NavigationPage]
+class NavigationRoute extends PageRouteInfo<void> {
+  const NavigationRoute({List<PageRouteInfo>? children})
+      : super(
+          NavigationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NavigationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [SignInPage]
 class SignInRoute extends PageRouteInfo<void> {
   const SignInRoute({List<PageRouteInfo>? children})
@@ -164,6 +220,48 @@ class SignInRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SignInRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MypageNavigationPage]
+class MypageNavigationRoute extends PageRouteInfo<void> {
+  const MypageNavigationRoute({List<PageRouteInfo>? children})
+      : super(
+          MypageNavigationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MypageNavigationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MypagePage]
+class MypageRoute extends PageRouteInfo<void> {
+  const MypageRoute({List<PageRouteInfo>? children})
+      : super(
+          MypageRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MypageRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TermOfServicePage]
+class TermOfServiceRoute extends PageRouteInfo<void> {
+  const TermOfServiceRoute({List<PageRouteInfo>? children})
+      : super(
+          TermOfServiceRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TermOfServiceRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -215,104 +313,6 @@ class NotFoundRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'NotFoundRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [MypageNavigationPage]
-class MypageNavigationRoute extends PageRouteInfo<void> {
-  const MypageNavigationRoute({List<PageRouteInfo>? children})
-      : super(
-          MypageNavigationRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'MypageNavigationRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [MypagePage]
-class MypageRoute extends PageRouteInfo<void> {
-  const MypageRoute({List<PageRouteInfo>? children})
-      : super(
-          MypageRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'MypageRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [HomeNavigationPage]
-class HomeNavigationRoute extends PageRouteInfo<void> {
-  const HomeNavigationRoute({List<PageRouteInfo>? children})
-      : super(
-          HomeNavigationRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeNavigationRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [TermOfServicePage]
-class TermOfServiceRoute extends PageRouteInfo<void> {
-  const TermOfServiceRoute({List<PageRouteInfo>? children})
-      : super(
-          TermOfServiceRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'TermOfServiceRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [LoadingPage]
-class LoadingRoute extends PageRouteInfo<void> {
-  const LoadingRoute({List<PageRouteInfo>? children})
-      : super(
-          LoadingRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'LoadingRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [NavigationPage]
-class NavigationRoute extends PageRouteInfo<void> {
-  const NavigationRoute({List<PageRouteInfo>? children})
-      : super(
-          NavigationRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'NavigationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

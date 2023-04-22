@@ -1,0 +1,32 @@
+targets:
+  $default:
+    builders:
+      # ページルートの生成ターゲットを絞る
+      auto_route_generator:auto_route_generator:
+        generate_for:
+          - lib/feature/**_page.dart
+
+      # ルート定義の生成ターゲットを絞る
+      auto_route_generator:auto_router_generator:
+        generate_for:
+          - lib/router/router.dart
+
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - type=lint
+            - implicit_dynamic_parameter
+            - implicit_dynamic_type
+            - implicit_dynamic_method
+            - strict_raw_type
+      freezed:
+        generate_for:
+          include:
+            - lib/**/*.dart
+      json_serializable:
+        generate_for:
+          include:
+            - lib/**/*.dart
+        options:
+          any_map: true
+          explicit_to_json: true
