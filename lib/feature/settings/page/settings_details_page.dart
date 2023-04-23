@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class SettingsDetailsPage extends ConsumerWidget {
   const SettingsDetailsPage({
     super.key,
-    @PathParam('id') required this.id,
+    @PathParam.inherit('id') required this.id,
   });
 
   final int id;

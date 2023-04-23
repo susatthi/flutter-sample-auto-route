@@ -9,6 +9,7 @@ import '../feature/loading/page/loading_page.dart';
 import '../feature/root/page/root_page.dart';
 import '../feature/settings/page/settings_details_page.dart';
 import '../feature/settings/page/settings_page.dart';
+import '../feature/settings/page/settings_view_page.dart';
 import '../feature/user/page/mypage_page.dart';
 import '../feature/user/page/sign_in_page.dart';
 import '../feature/user/page/term_of_service_page.dart';
@@ -62,8 +63,14 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
                       initial: true,
                     ),
                     AutoRoute(
-                      page: SettingsDetailsRoute.page,
+                      page: SettingsViewRoute.page,
                       path: ':id',
+                      children: [
+                        AutoRoute(
+                          page: SettingsDetailsRoute.page,
+                          path: 'details',
+                        ),
+                      ],
                     ),
                   ],
                 ),

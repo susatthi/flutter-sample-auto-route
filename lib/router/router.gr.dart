@@ -18,12 +18,12 @@ abstract class _$AppRouter extends RootStackRouter {
     SettingsDetailsRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<SettingsDetailsRouteArgs>(
-          orElse: () => SettingsDetailsRouteArgs(id: pathParams.getInt('id')));
+          orElse: () => SettingsDetailsRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: SettingsDetailsPage(
           key: args.key,
-          id: args.id,
+          id: pathParams.getInt('id'),
         ),
       );
     },
@@ -104,6 +104,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const RootPage(),
       );
     },
+    SettingsViewRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<SettingsViewRouteArgs>(
+          orElse: () => SettingsViewRouteArgs(id: pathParams.getInt('id')));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SettingsViewPage(
+          key: args.key,
+          id: args.id,
+        ),
+      );
+    },
   };
 }
 
@@ -112,15 +124,10 @@ abstract class _$AppRouter extends RootStackRouter {
 class SettingsDetailsRoute extends PageRouteInfo<SettingsDetailsRouteArgs> {
   SettingsDetailsRoute({
     Key? key,
-    required int id,
     List<PageRouteInfo>? children,
   }) : super(
           SettingsDetailsRoute.name,
-          args: SettingsDetailsRouteArgs(
-            key: key,
-            id: id,
-          ),
-          rawPathParams: {'id': id},
+          args: SettingsDetailsRouteArgs(key: key),
           initialChildren: children,
         );
 
@@ -131,18 +138,13 @@ class SettingsDetailsRoute extends PageRouteInfo<SettingsDetailsRouteArgs> {
 }
 
 class SettingsDetailsRouteArgs {
-  const SettingsDetailsRouteArgs({
-    this.key,
-    required this.id,
-  });
+  const SettingsDetailsRouteArgs({this.key});
 
   final Key? key;
 
-  final int id;
-
   @override
   String toString() {
-    return 'SettingsDetailsRouteArgs{key: $key, id: $id}';
+    return 'SettingsDetailsRouteArgs{key: $key}';
   }
 }
 
@@ -335,4 +337,43 @@ class RootRoute extends PageRouteInfo<void> {
   static const String name = 'RootRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SettingsViewPage]
+class SettingsViewRoute extends PageRouteInfo<SettingsViewRouteArgs> {
+  SettingsViewRoute({
+    Key? key,
+    required int id,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SettingsViewRoute.name,
+          args: SettingsViewRouteArgs(
+            key: key,
+            id: id,
+          ),
+          rawPathParams: {'id': id},
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsViewRoute';
+
+  static const PageInfo<SettingsViewRouteArgs> page =
+      PageInfo<SettingsViewRouteArgs>(name);
+}
+
+class SettingsViewRouteArgs {
+  const SettingsViewRouteArgs({
+    this.key,
+    required this.id,
+  });
+
+  final Key? key;
+
+  final int id;
+
+  @override
+  String toString() {
+    return 'SettingsViewRouteArgs{key: $key, id: $id}';
+  }
 }
