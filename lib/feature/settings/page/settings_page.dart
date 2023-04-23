@@ -5,6 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../router/router.dart';
 
 @RoutePage()
+class SettingsRouterPage extends AutoRouter {
+  const SettingsRouterPage({super.key});
+}
+
+@RoutePage()
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
 
@@ -12,6 +17,7 @@ class SettingsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
+        leading: const AutoLeadingButton(),
         title: const Text('設定'),
       ),
       body: ListView.builder(

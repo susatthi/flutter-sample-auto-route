@@ -54,12 +54,18 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
                   page: HomeRoute.page,
                 ),
                 AutoRoute(
-                  page: SettingsRoute.page,
+                  page: SettingsRouterRoute.page,
                   path: 'settings',
-                ),
-                AutoRoute(
-                  page: SettingsDetailsRoute.page,
-                  path: 'settings/:id',
+                  children: [
+                    AutoRoute(
+                      page: SettingsRoute.page,
+                      initial: true,
+                    ),
+                    AutoRoute(
+                      page: SettingsDetailsRoute.page,
+                      path: ':id',
+                    ),
+                  ],
                 ),
               ],
             ),
