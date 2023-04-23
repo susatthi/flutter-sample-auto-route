@@ -5,10 +5,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../router/router.dart';
 
 @RoutePage()
+class SettingsViewRouterPage extends AutoRouter {
+  const SettingsViewRouterPage({
+    super.key,
+    @PathParam('id') required this.id,
+  });
+
+  final int id;
+}
+
+@RoutePage()
 class SettingsViewPage extends ConsumerWidget {
   const SettingsViewPage({
     super.key,
-    @PathParam('id') required this.id,
+    @PathParam.inherit('id') required this.id,
   });
 
   final int id;
@@ -17,6 +27,7 @@ class SettingsViewPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
+        leading: const AutoLeadingButton(),
         title: const Text('設定'),
       ),
       body: ColoredBox(
