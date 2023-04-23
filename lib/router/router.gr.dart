@@ -33,10 +33,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SettingsPage(),
       );
     },
-    HomeNavigationRoute.name: (routeData) {
+    HomeRouterRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const HomeNavigationPage(),
+        child: const HomeRouterPage(),
       );
     },
     HomeRoute.name: (routeData) {
@@ -51,22 +51,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const LoadingPage(),
       );
     },
-    NavigationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const NavigationPage(),
-      );
-    },
     SignInRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SignInPage(),
       );
     },
-    MypageNavigationRoute.name: (routeData) {
+    MypageRouterRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MypageNavigationPage(),
+        child: const MypageRouterPage(),
       );
     },
     MypageRoute.name: (routeData) {
@@ -96,6 +90,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const NotFoundPage(),
+      );
+    },
+    RootRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RootPage(),
       );
     },
   };
@@ -155,15 +155,15 @@ class SettingsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [HomeNavigationPage]
-class HomeNavigationRoute extends PageRouteInfo<void> {
-  const HomeNavigationRoute({List<PageRouteInfo>? children})
+/// [HomeRouterPage]
+class HomeRouterRoute extends PageRouteInfo<void> {
+  const HomeRouterRoute({List<PageRouteInfo>? children})
       : super(
-          HomeNavigationRoute.name,
+          HomeRouterRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'HomeNavigationRoute';
+  static const String name = 'HomeRouterRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -197,20 +197,6 @@ class LoadingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [NavigationPage]
-class NavigationRoute extends PageRouteInfo<void> {
-  const NavigationRoute({List<PageRouteInfo>? children})
-      : super(
-          NavigationRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'NavigationRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [SignInPage]
 class SignInRoute extends PageRouteInfo<void> {
   const SignInRoute({List<PageRouteInfo>? children})
@@ -225,15 +211,15 @@ class SignInRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [MypageNavigationPage]
-class MypageNavigationRoute extends PageRouteInfo<void> {
-  const MypageNavigationRoute({List<PageRouteInfo>? children})
+/// [MypageRouterPage]
+class MypageRouterRoute extends PageRouteInfo<void> {
+  const MypageRouterRoute({List<PageRouteInfo>? children})
       : super(
-          MypageNavigationRoute.name,
+          MypageRouterRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'MypageNavigationRoute';
+  static const String name = 'MypageRouterRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -313,6 +299,20 @@ class NotFoundRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'NotFoundRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RootPage]
+class RootRoute extends PageRouteInfo<void> {
+  const RootRoute({List<PageRouteInfo>? children})
+      : super(
+          RootRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RootRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

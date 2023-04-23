@@ -11,8 +11,8 @@ import 'component/uid_text_field.dart';
 import 'component/update_uid.dart';
 
 @RoutePage()
-class MypageNavigationPage extends AutoRouter {
-  const MypageNavigationPage({super.key});
+class MypageRouterPage extends AutoRouter {
+  const MypageRouterPage({super.key});
 }
 
 @RoutePage()

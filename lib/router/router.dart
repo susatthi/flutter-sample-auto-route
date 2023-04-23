@@ -6,7 +6,7 @@ import '../feature/error/page/error_page.dart';
 import '../feature/error/page/not_found_page.dart';
 import '../feature/home/page/home_page.dart';
 import '../feature/loading/page/loading_page.dart';
-import '../feature/navigation/page/navigation_page.dart';
+import '../feature/root/page/root_page.dart';
 import '../feature/settings/page/settings_details_page.dart';
 import '../feature/settings/page/settings_page.dart';
 import '../feature/user/page/mypage_page.dart';
@@ -39,14 +39,14 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
           type: const NoAnimationRouteType(),
         ),
         AutoRoute(
-          page: NavigationRoute.page,
+          page: RootRoute.page,
           path: '/',
           type: const NoAnimationRouteType(),
           children: [
             // ネストルーティングするためにAppRouterを挟む
             AutoRoute(
               initial: true,
-              page: HomeNavigationRoute.page,
+              page: HomeRouterRoute.page,
               path: 'home',
               children: [
                 AutoRoute(
@@ -64,7 +64,7 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
               ],
             ),
             AutoRoute(
-              page: MypageNavigationRoute.page,
+              page: MypageRouterRoute.page,
               path: 'mypage',
               children: [
                 AutoRoute(
@@ -95,7 +95,7 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
     // App()でユーザー状態が確定するまで待っているので、このタイミングでは確定している
     final signedIn = ref.read(signedInProvider).requireValue;
     if (!signedIn) {
-      // サインイン済み
+      // 未サインイン
 
       if ([
         SignInRoute.name,
@@ -109,13 +109,13 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
       logger.i('未サインインなのでサインイン画面にリダイレクト');
       router.replace(const SignInRoute());
     } else {
-      // 未サインイン
+      // サインイン済み
 
       if ([
         SignInRoute.name,
       ].contains(routeName)) {
         logger.i('サインイン済みなのに $routeName を開こうとした場合トップ画面にリダイレクト');
-        router.push(const NavigationRoute());
+        router.push(const RootRoute());
         return;
       }
 

@@ -5,15 +5,15 @@ import '../../../router/router.dart';
 import '../state/navigation_item.dart';
 
 @RoutePage()
-class NavigationPage extends StatelessWidget {
-  const NavigationPage({super.key});
+class RootPage extends StatelessWidget {
+  const RootPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
       routes: const [
-        HomeNavigationRoute(),
-        MypageNavigationRoute(),
+        HomeRouterRoute(),
+        MypageRouterRoute(),
       ],
       transitionBuilder: (context, child, animation) {
         return AnimatedBuilder(

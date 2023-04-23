@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../router/router.dart';
 
 @RoutePage()
-class HomeNavigationPage extends AutoRouter {
-  const HomeNavigationPage({super.key});
+class HomeRouterPage extends AutoRouter {
+  const HomeRouterPage({super.key});
 }
 
 @RoutePage()
