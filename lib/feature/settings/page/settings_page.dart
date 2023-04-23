@@ -20,7 +20,7 @@ class SettingsPage extends ConsumerWidget {
           return ListTile(
             title: Text('設定$index'),
             onTap: () async {
-              await context.router.navigate(
+              await context.navigateTo(
                 SettingsDetailsRoute(id: index),
               );
             },

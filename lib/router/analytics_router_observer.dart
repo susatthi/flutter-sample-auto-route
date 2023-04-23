@@ -18,7 +18,7 @@ bool defaultRouteFilter(Route<dynamic>? route) {
   }
 
   // NavigationRouteは画面扱いにしない
-  if (route.settings.name == NavigationRoute.name) {
+  if (route.settings.name == RootRoute.name) {
     return false;
   }
   return true;

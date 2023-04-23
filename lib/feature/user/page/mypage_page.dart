@@ -36,7 +36,7 @@ class MypagePage extends ConsumerWidget {
             ListTile(
               title: const Text('利用規約'),
               onTap: () async {
-                await context.router.navigate(const TermOfServiceRoute());
+                await context.navigateTo(const TermOfServiceRoute());
               },
             ),
             ListTile(

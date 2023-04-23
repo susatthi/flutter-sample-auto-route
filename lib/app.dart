@@ -23,7 +23,7 @@ class App extends ConsumerWidget {
       signInStateProvider,
       completeMessage: 'サインインしました。',
       onComplete: (_) {
-        ref.read(routerProvider).replace(const NavigationRoute());
+        ref.read(routerProvider).replace(const RootRoute());
       },
     );
 
@@ -31,7 +31,7 @@ class App extends ConsumerWidget {
       signOutStateProvider,
       completeMessage: 'サインアウトしました。',
       onComplete: (_) {
-        ref.read(routerProvider).replace(const NavigationRoute());
+        ref.read(routerProvider).replace(const RootRoute());
       },
     );
 
