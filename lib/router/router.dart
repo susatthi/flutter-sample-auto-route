@@ -35,44 +35,43 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: SignInRoute.page,
           path: '/sign-in',
+          page: SignInRoute.page,
           type: const NoAnimationRouteType(),
         ),
         AutoRoute(
-          page: RootRoute.page,
           path: '/',
+          page: RootRoute.page,
           type: const NoAnimationRouteType(),
           children: [
             // ネストルーティングするためにAppRouterを挟む
             AutoRoute(
               initial: true,
               page: HomeRouterRoute.page,
-              path: 'home',
               children: [
                 AutoRoute(
                   initial: true,
                   page: HomeRoute.page,
                 ),
                 AutoRoute(
-                  page: SettingsRouterRoute.page,
                   path: 'settings',
+                  page: SettingsRouterRoute.page,
                   children: [
                     AutoRoute(
-                      page: SettingsRoute.page,
                       initial: true,
+                      page: SettingsRoute.page,
                     ),
                     AutoRoute(
-                      page: SettingsViewRouterRoute.page,
                       path: ':id',
+                      page: SettingsViewRouterRoute.page,
                       children: [
                         AutoRoute(
-                          page: SettingsViewRoute.page,
                           initial: true,
+                          page: SettingsViewRoute.page,
                         ),
                         AutoRoute(
-                          page: SettingsDetailsRoute.page,
                           path: 'details',
+                          page: SettingsDetailsRoute.page,
                         ),
                       ],
                     ),
@@ -81,24 +80,24 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
               ],
             ),
             AutoRoute(
-              page: MypageRouterRoute.page,
               path: 'mypage',
+              page: MypageRouterRoute.page,
               children: [
                 AutoRoute(
                   initial: true,
                   page: MypageRoute.page,
                 ),
                 AutoRoute(
-                  page: TermOfServiceRoute.page,
                   path: 'term-of-service',
+                  page: TermOfServiceRoute.page,
                 ),
               ],
             ),
           ],
         ),
         AutoRoute(
-          page: NotFoundRoute.page,
           path: '*',
+          page: NotFoundRoute.page,
           type: const NoAnimationRouteType(),
         ),
       ];
