@@ -16,6 +16,8 @@
       "flutterMode": "debug",
       "program": "lib/main.dart",
       "args": [
+        "--web-renderer",
+        "html",
         "--web-hostname",
         "localhost",
         "--web-port",

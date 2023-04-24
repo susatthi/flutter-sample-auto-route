@@ -27,10 +27,49 @@ class HomePage extends ConsumerWidget {
           ),
         ],
       ),
-      body: const ColoredBox(
+      body: ColoredBox(
         color: Colors.amber,
         child: Center(
-          child: Text('ホーム'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () async {
+                  await context.navigateTo(
+                    SettingsRouterRoute(
+                      children: [
+                        SettingsViewRouterRoute(
+                          id: 10,
+                          children: [
+                            SettingsDetailsRoute(),
+                          ],
+                        )
+                      ],
+                    ),
+                  );
+                },
+                child: const Text('設定10の詳細'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () async {
+                  await context.navigateTo(
+                    SettingsRouterRoute(
+                      children: [
+                        SettingsViewRouterRoute(
+                          id: 10,
+                          children: const [
+                            SettingsFavoriteRoute(),
+                          ],
+                        )
+                      ],
+                    ),
+                  );
+                },
+                child: const Text('設定20のお気に入り'),
+              ),
+            ],
+          ),
         ),
       ),
     );

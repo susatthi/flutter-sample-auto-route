@@ -39,11 +39,19 @@ class SettingsViewPage extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('$id'),
+              const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () async {
                   await context.navigateTo(SettingsDetailsRoute());
                 },
                 child: Text(title ?? 'null'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () async {
+                  await context.navigateTo(const SettingsFavoriteRoute());
+                },
+                child: const Text('お気に入り'),
               ),
             ],
           ),

@@ -130,6 +130,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    SettingsFavoriteRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SettingsFavoritePage(),
+      );
+    },
   };
 }
 
@@ -429,4 +435,18 @@ class SettingsViewRouteArgs {
   String toString() {
     return 'SettingsViewRouteArgs{key: $key, title: $title}';
   }
+}
+
+/// generated route for
+/// [SettingsFavoritePage]
+class SettingsFavoriteRoute extends PageRouteInfo<void> {
+  const SettingsFavoriteRoute({List<PageRouteInfo>? children})
+      : super(
+          SettingsFavoriteRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsFavoriteRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -8,6 +8,7 @@ import '../feature/home/page/home_page.dart';
 import '../feature/loading/page/loading_page.dart';
 import '../feature/root/page/root_page.dart';
 import '../feature/settings/page/settings_details_page.dart';
+import '../feature/settings/page/settings_favorite_page.dart';
 import '../feature/settings/page/settings_page.dart';
 import '../feature/settings/page/settings_view_page.dart';
 import '../feature/user/page/mypage_page.dart';
@@ -53,30 +54,6 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
                   initial: true,
                   page: HomeRoute.page,
                 ),
-                AutoRoute(
-                  path: 'settings',
-                  page: SettingsRouterRoute.page,
-                  children: [
-                    AutoRoute(
-                      initial: true,
-                      page: SettingsRoute.page,
-                    ),
-                    AutoRoute(
-                      path: ':id',
-                      page: SettingsViewRouterRoute.page,
-                      children: [
-                        AutoRoute(
-                          initial: true,
-                          page: SettingsViewRoute.page,
-                        ),
-                        AutoRoute(
-                          path: 'details',
-                          page: SettingsDetailsRoute.page,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
               ],
             ),
             AutoRoute(
@@ -90,6 +67,36 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
                 AutoRoute(
                   path: 'term-of-service',
                   page: TermOfServiceRoute.page,
+                ),
+              ],
+            ),
+          ],
+        ),
+        AutoRoute(
+          path: '/settings',
+          page: SettingsRouterRoute.page,
+          fullscreenDialog: true,
+          children: [
+            AutoRoute(
+              initial: true,
+              page: SettingsRoute.page,
+              fullscreenDialog: true,
+            ),
+            AutoRoute(
+              path: ':id',
+              page: SettingsViewRouterRoute.page,
+              children: [
+                AutoRoute(
+                  initial: true,
+                  page: SettingsViewRoute.page,
+                ),
+                AutoRoute(
+                  path: 'details',
+                  page: SettingsDetailsRoute.page,
+                ),
+                AutoRoute(
+                  path: 'favorite',
+                  page: SettingsFavoriteRoute.page,
                 ),
               ],
             ),

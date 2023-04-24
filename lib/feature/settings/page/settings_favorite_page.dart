@@ -3,25 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage()
-class SettingsDetailsPage extends ConsumerWidget {
-  const SettingsDetailsPage({
+class SettingsFavoritePage extends ConsumerWidget {
+  const SettingsFavoritePage({
     super.key,
-    @PathParam.inherit('id') required this.id,
   });
-
-  final int id;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         leading: const AutoLeadingButton(),
-        title: const Text('設定詳細'),
+        title: const Text('お気に入り'),
       ),
-      body: ColoredBox(
-        color: Colors.green,
+      body: const ColoredBox(
+        color: Colors.yellow,
         child: Center(
-          child: Text('$id'),
+          child: Text('お気に入り'),
         ),
       ),
     );
