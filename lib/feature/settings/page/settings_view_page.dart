@@ -18,10 +18,12 @@ class SettingsViewRouterPage extends AutoRouter {
 class SettingsViewPage extends ConsumerWidget {
   const SettingsViewPage({
     super.key,
-    @PathParam.inherit('id') required this.id,
+    @PathParam.inherit() required this.id,
+    this.title,
   });
 
   final int id;
+  final String? title;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -41,7 +43,7 @@ class SettingsViewPage extends ConsumerWidget {
                 onPressed: () async {
                   await context.navigateTo(SettingsDetailsRoute());
                 },
-                child: const Text('詳細'),
+                child: Text(title ?? 'null'),
               ),
             ],
           ),

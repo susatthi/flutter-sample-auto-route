@@ -27,7 +27,12 @@ class SettingsPage extends ConsumerWidget {
             title: Text('設定$index'),
             onTap: () async {
               await context.navigateTo(
-                SettingsViewRouterRoute(id: index),
+                SettingsViewRouterRoute(
+                  id: index,
+                  children: [
+                    SettingsViewRoute(title: '詳細'),
+                  ],
+                ),
               );
             },
           );
