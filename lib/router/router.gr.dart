@@ -131,9 +131,16 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     SettingsFavoriteRoute.name: (routeData) {
+      final queryParams = routeData.queryParams;
+      final args = routeData.argsAs<SettingsFavoriteRouteArgs>(
+          orElse: () =>
+              SettingsFavoriteRouteArgs(query: queryParams.optString('query')));
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SettingsFavoritePage(),
+        child: SettingsFavoritePage(
+          key: args.key,
+          query: args.query,
+        ),
       );
     },
   };
@@ -439,14 +446,39 @@ class SettingsViewRouteArgs {
 
 /// generated route for
 /// [SettingsFavoritePage]
-class SettingsFavoriteRoute extends PageRouteInfo<void> {
-  const SettingsFavoriteRoute({List<PageRouteInfo>? children})
-      : super(
+class SettingsFavoriteRoute extends PageRouteInfo<SettingsFavoriteRouteArgs> {
+  SettingsFavoriteRoute({
+    Key? key,
+    String? query,
+    List<PageRouteInfo>? children,
+  }) : super(
           SettingsFavoriteRoute.name,
+          args: SettingsFavoriteRouteArgs(
+            key: key,
+            query: query,
+          ),
+          rawQueryParams: {'query': query},
           initialChildren: children,
         );
 
   static const String name = 'SettingsFavoriteRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<SettingsFavoriteRouteArgs> page =
+      PageInfo<SettingsFavoriteRouteArgs>(name);
+}
+
+class SettingsFavoriteRouteArgs {
+  const SettingsFavoriteRouteArgs({
+    this.key,
+    this.query,
+  });
+
+  final Key? key;
+
+  final String? query;
+
+  @override
+  String toString() {
+    return 'SettingsFavoriteRouteArgs{key: $key, query: $query}';
+  }
 }

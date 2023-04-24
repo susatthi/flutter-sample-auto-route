@@ -6,7 +6,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class SettingsFavoritePage extends ConsumerWidget {
   const SettingsFavoritePage({
     super.key,
+    @QueryParam() this.query,
   });
+
+  final String? query;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -14,10 +18,10 @@ class SettingsFavoritePage extends ConsumerWidget {
         leading: const AutoLeadingButton(),
         title: const Text('お気に入り'),
       ),
-      body: const ColoredBox(
+      body: ColoredBox(
         color: Colors.yellow,
         child: Center(
-          child: Text('お気に入り'),
+          child: Text(query ?? 'null'),
         ),
       ),
     );

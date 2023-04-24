@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../router/router.dart';
+import '../../../util/auto_router_x.dart';
 
 @RoutePage()
 class HomeRouterPage extends AutoRouter {
@@ -35,7 +36,7 @@ class HomePage extends ConsumerWidget {
             children: [
               ElevatedButton(
                 onPressed: () async {
-                  await context.navigateTo(
+                  await context.navigateToX(
                     SettingsRouterRoute(
                       children: [
                         SettingsViewRouterRoute(
@@ -53,17 +54,20 @@ class HomePage extends ConsumerWidget {
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () async {
-                  await context.navigateTo(
+                  await context.navigateToX(
                     SettingsRouterRoute(
                       children: [
                         SettingsViewRouterRoute(
-                          id: 10,
-                          children: const [
-                            SettingsFavoriteRoute(),
+                          id: 20,
+                          children: [
+                            SettingsFavoriteRoute(
+                              query: 'aaaaaa',
+                            ),
                           ],
                         )
                       ],
                     ),
+                    includePrefixMatches: true,
                   );
                 },
                 child: const Text('設定20のお気に入り'),

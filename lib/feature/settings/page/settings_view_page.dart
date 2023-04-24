@@ -49,7 +49,7 @@ class SettingsViewPage extends ConsumerWidget {
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () async {
-                  await context.navigateTo(const SettingsFavoriteRoute());
+                  await context.navigateTo(SettingsFavoriteRoute());
                 },
                 child: const Text('お気に入り'),
               ),
