@@ -9,7 +9,6 @@ import 'feature/error/page/error_page.dart';
 import 'feature/loading/page/loading_page.dart';
 import 'feature/user/service/user_service.dart';
 import 'feature/user/state/user.dart';
-import 'router/analytics_router_observer.dart';
 import 'router/logger_router_observer.dart';
 import 'router/router.dart';
 import 'util/logger.dart';
@@ -44,7 +43,6 @@ class App extends ConsumerWidget {
         // オブザーバーを登録
         navigatorObservers: () => [
           LoggerRouterObserver(),
-          AnalyticsRouterObserver(),
         ],
       ),
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
