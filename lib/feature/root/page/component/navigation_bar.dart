@@ -18,7 +18,7 @@ class RootNavigationBar extends StatelessWidget {
       destinations: NavigationItem.values
           .map((item) => _NavigationDestination(item: item))
           .toList(),
-      onDestinationSelected: tabsRouter.setActiveIndex,
+      onDestinationSelected: tabsRouter.setActiveIndexX,
     );
   }
 }
@@ -37,5 +37,19 @@ class _NavigationDestination extends StatelessWidget {
       selectedIcon: Icon(item.selectedIcon),
       label: item.label,
     );
+  }
+}
+
+extension on TabsRouter {
+  /// 拡張したsetActiveIndex()
+  ///
+  /// 現在選択中のタブを再度押下した場合スタックを破棄して最初の画面に戻す
+  void setActiveIndexX(int index, {bool notify = true}) {
+    if (activeIndex == index) {
+      final currentRouteName = current.name;
+      final currentRoute = innerRouterOf<StackRouter>(currentRouteName);
+      currentRoute?.popUntilRoot();
+    }
+    setActiveIndex(index, notify: notify);
   }
 }
