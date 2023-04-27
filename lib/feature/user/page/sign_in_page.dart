@@ -6,11 +6,11 @@ import 'component/sign_in.dart';
 import 'component/uid_text_field.dart';
 
 @RoutePage()
-class SignInPage extends ConsumerWidget {
+class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: ConstrainedBox(

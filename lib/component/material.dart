@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-extension AutoRouterX on BuildContext {
-  StackRouter get rootRouter => AutoRouter.of(this).root;
-
+extension BuildContextEx on BuildContext {
+  /// includePrefixMatchesを使えるようにした拡張版navigateTo()
   Future<void> navigateToX(
     PageRouteInfo route, {
     bool includePrefixMatches = false,
@@ -18,13 +17,13 @@ extension AutoRouterX on BuildContext {
   }
 
   String? _buildFullPath(PageRouteInfo<dynamic> route) {
-    final match = rootRouter.match(route);
+    final match = router.match(route);
     if (match == null) {
       return null;
     }
 
     final stringMatches = _collectStringMatches(match);
-    final path = stringMatches.join('/');
+    final path = stringMatches.map((e) => e == '/' ? '' : e).join('/');
     final parameters = _collectParameters(match);
     final queryParameters = parameters.isNotEmpty
         ? parameters.map((e) => e.rawMap).reduce((value, element) {
