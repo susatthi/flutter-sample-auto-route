@@ -9,7 +9,7 @@ targets:
       # ルート定義の生成ターゲットを絞る
       auto_route_generator:auto_router_generator:
         generate_for:
-          - lib/router/router.dart
+          - lib/router/app_router.dart
 
       source_gen|combining_builder:
         options:

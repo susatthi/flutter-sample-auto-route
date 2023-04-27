@@ -18,9 +18,9 @@ import '../feature/user/state/guard_state.dart';
 import '../util/logger.dart';
 import 'route_type.dart';
 
-part 'router.gr.dart';
+part 'app_router.gr.dart';
 
-final routerProvider = Provider((ref) {
+final appRouterProvider = Provider((ref) {
   return AppRouter(ref);
 });
 

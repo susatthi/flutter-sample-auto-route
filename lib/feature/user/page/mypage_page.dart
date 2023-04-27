@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../component/widget_ref.dart';
-import '../../../router/router.dart';
+import '../../../router/app_router.dart';
 import '../service/user_service.dart';
 import '../state/user.dart';
 import 'component/sign_out.dart';

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../../router/router.dart';
+import '../../../router/app_router.dart';
 import 'component/navigation_bar.dart';
 
 @RoutePage()

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../component/material.dart';
-import '../../../router/router.dart';
+import '../../../router/app_router.dart';
 
 @RoutePage()
 class HomeRouterPage extends AutoRouter {

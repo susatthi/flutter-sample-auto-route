@@ -9,8 +9,8 @@ import 'feature/error/page/error_page.dart';
 import 'feature/loading/page/loading_page.dart';
 import 'feature/user/service/user_service.dart';
 import 'feature/user/state/guard_state.dart';
+import 'router/app_router.dart';
 import 'router/logger_router_observer.dart';
-import 'router/router.dart';
 import 'util/logger.dart';
 
 class App extends ConsumerWidget {
@@ -22,7 +22,7 @@ class App extends ConsumerWidget {
       signInStateProvider,
       completeMessage: 'サインインしました。',
       onComplete: (_) {
-        ref.read(routerProvider).replace(const RootRoute());
+        ref.read(appRouterProvider).replace(const RootRoute());
       },
     );
 
@@ -30,11 +30,11 @@ class App extends ConsumerWidget {
       signOutStateProvider,
       completeMessage: 'サインアウトしました。',
       onComplete: (_) {
-        ref.read(routerProvider).replace(const RootRoute());
+        ref.read(appRouterProvider).replace(const RootRoute());
       },
     );
 
-    final router = ref.watch(routerProvider);
+    final router = ref.watch(appRouterProvider);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: router.config(
