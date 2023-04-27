@@ -30,7 +30,7 @@ class SettingsPage extends ConsumerWidget {
                 SettingsViewRouterRoute(
                   id: index,
                   children: [
-                    SettingsViewRoute(title: '詳細'),
+                    SettingsViewRoute(memoryText: 'こんにちわ'),
                   ],
                 ),
               );

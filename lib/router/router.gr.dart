@@ -126,7 +126,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: SettingsViewPage(
           key: args.key,
           id: pathParams.getInt('id'),
-          title: args.title,
+          memoryText: args.memoryText,
         ),
       );
     },
@@ -411,13 +411,13 @@ class SettingsViewRouterRouteArgs {
 class SettingsViewRoute extends PageRouteInfo<SettingsViewRouteArgs> {
   SettingsViewRoute({
     Key? key,
-    String? title,
+    String? memoryText,
     List<PageRouteInfo>? children,
   }) : super(
           SettingsViewRoute.name,
           args: SettingsViewRouteArgs(
             key: key,
-            title: title,
+            memoryText: memoryText,
           ),
           initialChildren: children,
         );
@@ -431,16 +431,16 @@ class SettingsViewRoute extends PageRouteInfo<SettingsViewRouteArgs> {
 class SettingsViewRouteArgs {
   const SettingsViewRouteArgs({
     this.key,
-    this.title,
+    this.memoryText,
   });
 
   final Key? key;
 
-  final String? title;
+  final String? memoryText;
 
   @override
   String toString() {
-    return 'SettingsViewRouteArgs{key: $key, title: $title}';
+    return 'SettingsViewRouteArgs{key: $key, memoryText: $memoryText}';
   }
 }
 

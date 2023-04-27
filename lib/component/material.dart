@@ -17,9 +17,13 @@ extension BuildContextEx on BuildContext {
   }
 
   String? _buildFullPath(PageRouteInfo<dynamic> route) {
-    final match = router.match(route);
+    var match = router.match(route);
     if (match == null) {
-      return null;
+      // 見つからなければルートも探す
+      match = router.root.match(route);
+      if (match == null) {
+        return null;
+      }
     }
 
     final stringMatches = _collectStringMatches(match);

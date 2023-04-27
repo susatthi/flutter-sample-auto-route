@@ -21,7 +21,7 @@ class SettingsFavoritePage extends ConsumerWidget {
       body: ColoredBox(
         color: Colors.yellow,
         child: Center(
-          child: Text(query ?? 'null'),
+          child: Text('query = $query'),
         ),
       ),
     );

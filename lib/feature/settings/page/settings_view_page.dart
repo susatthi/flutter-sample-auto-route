@@ -19,11 +19,11 @@ class SettingsViewPage extends ConsumerWidget {
   const SettingsViewPage({
     super.key,
     @PathParam.inherit() required this.id,
-    this.title,
+    this.memoryText,
   });
 
   final int id;
-  final String? title;
+  final String? memoryText;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -38,13 +38,14 @@ class SettingsViewPage extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('$id'),
+              Text('id = $id'),
+              Text('memoryText = $memoryText'),
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () async {
                   await context.navigateTo(SettingsDetailsRoute());
                 },
-                child: Text(title ?? 'null'),
+                child: const Text('詳細'),
               ),
               const SizedBox(height: 10),
               ElevatedButton(

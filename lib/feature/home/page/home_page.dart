@@ -36,6 +36,41 @@ class HomePage extends ConsumerWidget {
             children: [
               ElevatedButton(
                 onPressed: () async {
+                  await context.navigateTo(
+                    SettingsRouterRoute(
+                      children: [
+                        SettingsViewRouterRoute(
+                          id: 5,
+                        )
+                      ],
+                    ),
+                  );
+                },
+                child: const Text('設定5'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () async {
+                  await context.navigateTo(
+                    SettingsRouterRoute(
+                      children: [
+                        SettingsViewRouterRoute(
+                          id: 5,
+                          children: [
+                            SettingsViewRoute(
+                              memoryText: 'おはようございます',
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  );
+                },
+                child: const Text('設定5（memoryTextあり）'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () async {
                   await context.navigateToX(
                     SettingsRouterRoute(
                       children: [
@@ -70,7 +105,7 @@ class HomePage extends ConsumerWidget {
                     includePrefixMatches: true,
                   );
                 },
-                child: const Text('設定20のお気に入り'),
+                child: const Text('設定20のお気に入り（スタック積む）'),
               ),
             ],
           ),

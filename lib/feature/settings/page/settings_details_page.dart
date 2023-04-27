@@ -21,7 +21,7 @@ class SettingsDetailsPage extends ConsumerWidget {
       body: ColoredBox(
         color: Colors.green,
         child: Center(
-          child: Text('$id'),
+          child: Text('id = $id'),
         ),
       ),
     );
