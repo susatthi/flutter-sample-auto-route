@@ -14,7 +14,7 @@ import '../feature/settings/page/settings_view_page.dart';
 import '../feature/user/page/mypage_page.dart';
 import '../feature/user/page/sign_in_page.dart';
 import '../feature/user/page/term_of_service_page.dart';
-import '../feature/user/state/user.dart';
+import '../feature/user/state/guard_state.dart';
 import '../util/logger.dart';
 import 'route_type.dart';
 
@@ -114,10 +114,10 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
     final routeName = resolver.route.name;
     logger.i('CALLED onNavigation(): $routeName');
 
-    // ユーザーの状態に応じて処理をわける
-    // App()でユーザー状態が確定するまで待っているので、このタイミングでは確定している
-    final signedIn = ref.read(signedInProvider).requireValue;
-    if (!signedIn) {
+    // ガード状態に応じて処理をわける
+    // App()でガード状態が確定するまで待っているので、このタイミングでは確定している
+    final guardState = ref.read(guardStateProvider).requireValue;
+    if (!guardState.signedIn) {
       // 未サインイン
 
       if ([

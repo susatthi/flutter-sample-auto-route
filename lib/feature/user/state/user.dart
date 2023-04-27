@@ -29,25 +29,3 @@ final userProvider = FutureProvider(
   },
   name: 'userProvider',
 );
-
-final signedInProvider = StateProvider<AsyncValue<bool>>(
-  (ref) {
-    // uidが変更された場合は通知しないように、user != null
-    // の状態に変化があったときだけ状態を変更する
-    ref.listen(userProvider, (previous, next) {
-      final prevSignedIn = previous?.signedIn;
-      final nextSignedIn = next.signedIn;
-      if (nextSignedIn != null && prevSignedIn != nextSignedIn) {
-        ref.controller.state = AsyncValue.data(nextSignedIn);
-      }
-    });
-    return const AsyncValue.loading();
-  },
-  name: 'signedInProvider',
-);
-
-extension on AsyncValue<User?> {
-  // ユーザー状態を返す
-  // ユーザー状態が未確定ならnullを返す
-  bool? get signedIn => isLoading || hasError ? null : requireValue != null;
-}

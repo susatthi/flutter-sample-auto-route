@@ -8,7 +8,7 @@ import 'component/widget_ref.dart';
 import 'feature/error/page/error_page.dart';
 import 'feature/loading/page/loading_page.dart';
 import 'feature/user/service/user_service.dart';
-import 'feature/user/state/user.dart';
+import 'feature/user/state/guard_state.dart';
 import 'router/logger_router_observer.dart';
 import 'router/router.dart';
 import 'util/logger.dart';
@@ -47,13 +47,12 @@ class App extends ConsumerWidget {
       ),
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
       builder: (context, child) {
-        final value = ref.watch(signedInProvider);
-        return value.when(
-          data: (signedIn) {
+        return ref.watch(guardStateProvider).when(
+          data: (guardState) {
             final isLoading = ref.watch(overlayLoadingProvider);
             logger.i(
               'MaterialApp.builder():'
-              ' signedIn = $signedIn,'
+              ' guardState = $guardState,'
               ' isLoading = $isLoading',
             );
             return Navigator(
