@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../router/router.dart';
-import '../state/navigation_item.dart';
+import 'component/navigation_bar.dart';
 
 @RoutePage()
 class RootPage extends StatelessWidget {
@@ -25,45 +25,9 @@ class RootPage extends StatelessWidget {
         final tabsRouter = context.tabsRouter;
         return Scaffold(
           body: child,
-          bottomNavigationBar: _NavigationBar(tabsRouter: tabsRouter),
+          bottomNavigationBar: RootNavigationBar(tabsRouter: tabsRouter),
         );
       },
-    );
-  }
-}
-
-class _NavigationBar extends StatelessWidget {
-  const _NavigationBar({
-    required this.tabsRouter,
-  });
-
-  final TabsRouter tabsRouter;
-
-  @override
-  Widget build(BuildContext context) {
-    return NavigationBar(
-      selectedIndex: tabsRouter.activeIndex,
-      destinations: NavigationItem.values
-          .map((item) => _NavigationDestination(item: item))
-          .toList(),
-      onDestinationSelected: tabsRouter.setActiveIndex,
-    );
-  }
-}
-
-class _NavigationDestination extends StatelessWidget {
-  const _NavigationDestination({
-    required this.item,
-  });
-
-  final NavigationItem item;
-
-  @override
-  Widget build(BuildContext context) {
-    return NavigationDestination(
-      icon: Icon(item.icon),
-      selectedIcon: Icon(item.selectedIcon),
-      label: item.label,
     );
   }
 }
